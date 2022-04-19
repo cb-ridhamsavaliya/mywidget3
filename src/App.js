@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+function App({ domElement }) {
+  const userName = domElement.getAttribute("data-name");
+  const userRole = domElement.getAttribute("data-role");
+  const userImage = domElement.getAttribute("data-img");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="card">
+        <img
+          src={
+            userImage
+              ? userImage
+              : "https://www.w3schools.com/howto/img_avatar.png"
+          }
+          alt="Avatar"
+          style={{ width: "100%" }}
+        />
+        <div className="container">
+          <h4>
+            <b>{userName}</b>
+          </h4>
+          <p>{userRole}</p>
+        </div>
+      </div>
     </div>
   );
 }
